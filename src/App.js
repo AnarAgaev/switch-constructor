@@ -1,6 +1,16 @@
+import Views from './components/Views';
+import Controllers from './components/Controllers';
+
 function App() {
   return (
-    <h1>Hello world!</h1>
+    <section className="constructor">
+      <div className="container">
+        <div className="row">
+          <Views />       
+          <Controllers />
+        </div>
+      </div>
+    </section>
   );
 }
 
