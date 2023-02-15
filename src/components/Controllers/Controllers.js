@@ -1,12 +1,17 @@
-import NavTabs from "../NavTabs/";
-import NavItems from "../NavItems/";
+import { useState } from "react";
+
+import NavTabs from "../NavTabs";
+import NavItems from "../NavItems";
 
 const Controllers = () => {
+  const [activeTab, setActiveTab] = useState('borders'); // borders, devices, backgrouns
+
   return(
-    <div className="col-12 col-md-6 col_controllers">
+    <div className="constructor__column constructor__column_controllers">
       <div className="constructor__controllers">
-        <NavTabs />
-        <NavItems />        
+        <NavTabs activeTab={activeTab} 
+          handleTabClick={setActiveTab} />
+        <NavItems activeTab={activeTab} />        
       </div>
     </div>
   );

@@ -1,6 +1,6 @@
 const Views = () => {
   return(
-    <div className="col-12 col-md-6 col_view">
+    <div className="constructor__column constructor__column_views">
       <div className="constructor__view">
         <div className="constructor__pic">
           <div className="constructor__pic-background">

@@ -1,16 +1,28 @@
-.constructor {
-  .row {
-    row-gap: 1rem;
-  }
+#root {
+  width: 100%;
+  height: auto;
+}
 
-  .col {
+.constructor {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+  width: 100%;
+  height: auto;
+
+  &__column {
+    width: 100%;
+
     @media (min-width: 768px) {
-      &_view        { order: 2; }
+      width: calc(50% - 10px);
+
+      &_views       { order: 2; }
       &_controllers { order: 1; }
     }
   }
 
-  &__view,
+  &__views,
   &__controllers {
     display: flex;
     flex-direction: column;
