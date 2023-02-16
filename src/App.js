@@ -1,10 +1,10 @@
-import Views from './components/Views';
-import Controllers from './components/Controllers';
+import Controllers from './Components/Controllers';
+import OrderView from './Containers/OrderView';
 
 function App() {
   return (
     <section className='constructor'>
-      <Views />       
+      <OrderView />       
       <Controllers />
     </section>
   );

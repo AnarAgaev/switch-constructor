@@ -50,6 +50,11 @@
   }
 
   &__view {
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    position: relative;
+
     @media (min-width: 768px) {
       margin-top: 56px;
     }
@@ -431,6 +436,26 @@
 
     //- Основная ширина полосы прокрутки.
     &::-webkit-resizer {
+    }
+  }
+
+  .placeholder-image {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: auto;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjkwIiBoZWlnaHQ9IjY5MCIgdmlld0JveD0iMCAwIDY5MCA2OTAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGQ9Ik00MzguNzUgMjQwLjgzM0gyNTEuMjVDMjQ4LjQ4NyAyNDAuODMzIDI0NS44MzggMjQxLjkzMSAyNDMuODg0IDI0My44ODRDMjQxLjkzMSAyNDUuODM4IDI0MC44MzMgMjQ4LjQ4NyAyNDAuODMzIDI1MS4yNVY0MzguNzVDMjQwLjgzMyA0NDEuNTEzIDI0MS45MzEgNDQ0LjE2MiAyNDMuODg0IDQ0Ni4xMTZDMjQ1LjgzOCA0NDguMDY5IDI0OC40ODcgNDQ5LjE2NyAyNTEuMjUgNDQ5LjE2N0g0MzguNzVDNDQxLjUxMyA0NDkuMTY3IDQ0NC4xNjIgNDQ4LjA2OSA0NDYuMTE2IDQ0Ni4xMTZDNDQ4LjA2OSA0NDQuMTYyIDQ0OS4xNjcgNDQxLjUxMyA0NDkuMTY3IDQzOC43NVYyNTEuMjVDNDQ5LjE2NyAyNDguNDg3IDQ0OC4wNjkgMjQ1LjgzOCA0NDYuMTE2IDI0My44ODRDNDQ0LjE2MiAyNDEuOTMxIDQ0MS41MTMgMjQwLjgzMyA0MzguNzUgMjQwLjgzM1pNNDI4LjMzMyAzNjUuODMzTDM5Ny4wODMgMzM0LjU4M0wzNDUgMzg2LjY2N0wzMjQuMTY3IDM2NS44MzNMMjYxLjY2NyA0MjguMzMzVjI2MS42NjdINDI4LjMzM1YzNjUuODMzWk0yODIuNSAzMDguNTQyQzI4Mi41IDMwMy4zOTEgMjg0LjAyNyAyOTguMzU2IDI4Ni44ODkgMjk0LjA3NEMyODkuNzUgMjg5Ljc5MSAyOTMuODE3IDI4Ni40NTMgMjk4LjU3NiAyODQuNDgyQzMwMy4zMzQgMjgyLjUxMSAzMDguNTcxIDI4MS45OTUgMzEzLjYyMiAyODNDMzE4LjY3NCAyODQuMDA1IDMyMy4zMTQgMjg2LjQ4NSAzMjYuOTU2IDI5MC4xMjdDMzMwLjU5OCAyOTMuNzY5IDMzMy4wNzggMjk4LjQxIDMzNC4wODMgMzAzLjQ2MUMzMzUuMDg4IDMwOC41MTMgMzM0LjU3MiAzMTMuNzQ5IDMzMi42MDEgMzE4LjUwN0MzMzAuNjMgMzIzLjI2NiAzMjcuMjkyIDMyNy4zMzMgMzIzLjAxIDMzMC4xOTRDMzE4LjcyNyAzMzMuMDU2IDMxMy42OTIgMzM0LjU4MyAzMDguNTQyIDMzNC41ODNDMzAxLjYzNSAzMzQuNTgzIDI5NS4wMTEgMzMxLjg0IDI5MC4xMjcgMzI2Ljk1NkMyODUuMjQ0IDMyMi4wNzIgMjgyLjUgMzE1LjQ0OCAyODIuNSAzMDguNTQyWiIgZmlsbD0iI0Y1RjVGNSIvPgo8L3N2Zz4K");
+    background-color: #fbfbfb;
+
+    &::before {
+      content: '';
+      display: block;
+      width: 100%;
+      height: auto;
+      padding-bottom: 100%;
     }
   }
 }

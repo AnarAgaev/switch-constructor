@@ -1,17 +1,33 @@
-import decompositionArrItems from "../helpers/decompositionArrItems";
-import BordersList from "../components/BordersList"
-import BordersItem from "../components/BordersItem";
+import { useSelector, useDispatch } from 'react-redux';
+import { activeBorder } from '../Redux/dataSlice';
+import { setBorder } from '../Redux/orderSlice';
+import decompositionArrItems from "../Helpers/decompositionArrItems";
+import SectionList from "../Components/SectionList";
+import BordersItem from "../Components/BordersItem";
+
+const handleClick = (dispatch, borders, id) => {   
+  const border = borders
+    .filter(border => border.id === id);
+
+  if (border.length) {
+    dispatch(setBorder(border[0]));
+    dispatch(activeBorder({id}));
+  }
+}
 
 const Borders = ({isActive, arrBorders}) => {
+  const data = useSelector((state) => state.data.borders);
+  const dispatch = useDispatch();
   
   let fragments = decompositionArrItems(arrBorders);
   let bordersLists = [];  
 
   for (const key in fragments) {
     const items = fragments[key]
-      .map(item => <BordersItem key={item.id} item={item} />);
+      .map(item => <BordersItem key={item.id} item={item} 
+        handleClick={(id) => handleClick(dispatch, data, item.id)} />);
       
-    bordersLists.push(<BordersList key={key} title={key} items={items}/>);
+    bordersLists.push(<SectionList key={key} title={key} items={items}/>);
   }
 
   const clazz = isActive 

@@ -1,15 +1,15 @@
-const BordersItem = ({item}) => {
-  const {id, active, type, collection, 
-    name, code, price, image } = item;
+const BordersItem = ({item, handleClick}) => {
+  
+  const {active, collection, name, image } = item;
 
   const clazz = active
     ? 'constructor__item active'
     : 'constructor__item';
 
   return(
-    <div className={clazz}>
+    <div className={clazz} onClick={handleClick}>
       <p>
-        <img src={`/images/borders/${image}`} 
+        <img src={`images/borders/${image}`} 
           alt={`${collection} - ${name}`} />
       </p>
       <h4>

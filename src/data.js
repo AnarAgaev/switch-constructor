@@ -1,4 +1,4 @@
-const state = {
+const stateData = {
   "order": {
     "border": {},
     "device": {},
@@ -7,7 +7,7 @@ const state = {
   "borders": [
     {
       "id": "1",
-      "active": true,
+      "active": false,
       "type": "Стеклянные рамки",
       "collection": "Elite",
       "name": "Графит",
@@ -269,7 +269,7 @@ const state = {
   "devices": [
     {
       "id": "1",
-      "active": true,
+      "active": false,
       "type": "Выключатели сенсорные",
       "collection": "",
       "name": "Белый одноклавишный",
@@ -673,12 +673,12 @@ const state = {
       "price": "000.00",
       "image": "Mechanism_Switcher_ribbed_graphit_2_btn_sup.png",
       "preview": "Mechanism_Switcher_ribbed_graphit_2_btn.png"
-    },
+    }
   ],
   "backgrounds": [
     {
       "id": "1",
-      "active": true,
+      "active": false,
       "image": "bg-12.jpg"
     },
     {
@@ -835,8 +835,8 @@ const state = {
       "id": "32",
       "active": false,
       "image": "bg-52.jpg"
-    },
+    }
   ]
 }
 
-export default state;
+export default stateData;

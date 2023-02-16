@@ -1,31 +1,44 @@
-const Views = () => {
+const Views = ({order}) => {
+  const {background, border, device} = order;
+
   return(
-    <div className="constructor__column constructor__column_views">
-      <div className="constructor__view">
-        <div className="constructor__pic">
-          <div className="constructor__pic-background">
-            <img src="https://anaragaev.github.io/images/constructor/background/bg-39.jpg" alt="" />
-          </div>
-          <div className="constructor__pic-border">
-            <img src="https://anaragaev.github.io/images/constructor/border/4690389180675_werkel.png" alt="" />
-          </div>
-          <div className="constructor__pic-device">
-            <img src="https://anaragaev.github.io/images/constructor/device/picture/mechanism_white_socket_sup.png"
-              alt="" />
-          </div>
+    <>
+      <div className="constructor__pic">
+        {
+          !background.image
+            ? null
+            : <div className="constructor__pic-background">
+                <img src={`images/backgrounds/${background.image}`} alt="" />
+              </div>
+        }
+        {
+          !border.image
+            ? null
+            : <div className="constructor__pic-border">
+                <img src={`images/borders/${border.image}`} alt="" />
+              </div>
+        }
+        {
+          !device.image
+            ? null
+            : <div className="constructor__pic-device">
+                <img src={`images/devices/pictures/${device.image}`} alt="" />
+              </div>
+        }
+      </div>
+
+      <div className="constructor__sign">
+        <div>
+          <h3>Рамка:</h3>
+          <p id="constructorSignTitle">{border.collection} {border.name}</p>
         </div>
-        <div className="constructor__sign">
-          <div>
-            <h3>Рамка:</h3>
-            <p id="constructorSignTitle">Elite графит</p>
-          </div>
-          <div>
-            <h3>Механизм:</h3>
-            <p id="constructorSignDescription">Белый одноклавишный</p>
-          </div>
+
+        <div>
+          <h3>Механизм:</h3>
+          <p id="constructorSignDescription">{device.name}</p>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 
