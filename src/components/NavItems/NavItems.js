@@ -4,6 +4,7 @@ import { initData } from '../../Redux/dataSlice';
 import Borders from '../../Containers/Borders';
 import Backgrounds from '../../Containers/Backgrounds';
 import Devices from '../../Containers/Devices';
+import Preloader from '../Preloader/Preloader';
 
 const NavItems = ({activeTab}) => {
   
@@ -18,6 +19,10 @@ const NavItems = ({activeTab}) => {
     compositions: activeTab === 'compositions',
   }
 
+  const isLoaded = data.borders 
+    || data.devices 
+    || data.backgrouns;
+
   useEffect(() => {
     const fetchData = async () => {
       const response = await fetch('https://anaragaev.github.io/constructor/constructor-data.json');
@@ -25,18 +30,24 @@ const NavItems = ({activeTab}) => {
       dispatch(initData(data));
     }
     fetchData().catch((error) => console.log(error));    
-  },[]);  
+  },[dispatch]);
 
   return(
     <div className="constructor__drops custom-scroll-vertical">
-      <Borders isActive={isActive.borders} 
-        arrBorders={data.borders} />
+      {
+        isLoaded.length === 0
+          ? <Preloader />
+          : <>
+              <Borders isActive={isActive.borders} 
+                arrBorders={data.borders} />
 
-      <Devices isActive={isActive.devices}
-        arrDevices={data.devices} />
+              <Devices isActive={isActive.devices}
+                arrDevices={data.devices} />
 
-      <Backgrounds isActive={isActive.backgrouns} 
-        arrBackgrounds={data.backgrounds} />
+              <Backgrounds isActive={isActive.backgrouns} 
+                arrBackgrounds={data.backgrounds} />
+            </>
+      }
     </div>
   );
 }
