@@ -25,7 +25,7 @@ const NavItems = ({activeTab}) => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch('https://anaragaev.github.io/constructor/constructor-data.json');
+      const response = await fetch('constructor-data.json');
       const data = await response.json();
       dispatch(initData(data));
     }
